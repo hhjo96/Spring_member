@@ -15,7 +15,7 @@ public class MemberService {
 
     //c
     @Transactional
-    public MemberCreateResponse createMember(MemberCreateRequest request){
+    public MemberCreateResponse save(MemberCreateRequest request){
         Member member = new Member(request.getName());
         Member savedMember = memberRepository.save(member);
 
