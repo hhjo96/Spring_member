@@ -14,7 +14,7 @@ import java.util.List;
 public class MemberController {
     private final MemberService memberService;
 
-    @PostMapping("/memberss")
+    @PostMapping("/members")
     public ResponseEntity<MemberCreateResponse> create(@RequestBody MemberCreateRequest request){
         return ResponseEntity.status(HttpStatus.CREATED).body(memberService.save(request));
     }
@@ -26,17 +26,18 @@ public class MemberController {
     }
 
     @GetMapping("/members/{memberId}")
-    public ResponseEntity<MemberGetResponse> getOne(@PathVariable Long memoId) {
-        return ResponseEntity.status(HttpStatus.OK).body(memberService.findOne(memoId));
+    public ResponseEntity<MemberGetResponse> getOne(@PathVariable Long memberId) {
+        return ResponseEntity.status(HttpStatus.OK).body(memberService.findOne(memberId));
     }
 
-    @PutMapping("/memos/{memberId}")
+    @PutMapping("/members/{memberId}")
     public ResponseEntity<MemberUpdateResponse> update(@PathVariable Long memberId, @RequestBody MemberUpdateRequest request){
         return ResponseEntity.status(HttpStatus.OK).body(memberService.update(memberId, request));
     }
 
-    @DeleteMapping("/memos/{memoId}")
-    public void delete(@PathVariable Long memoId){
-        memberService.delete(memoId);
+    @DeleteMapping("/members/{memberId}")
+    public void delete(@PathVariable Long memberId){
+        memberService.delete(memberId);
+        //이렇게 하면 200 ok 나옴.
     }
 }

@@ -1,7 +1,10 @@
 package com.example.member.dto;
 
+import lombok.Getter;
+
 import java.time.LocalDateTime;
 
+@Getter
 public class MemberUpdateResponse {
     private Long id;
     private String name;
